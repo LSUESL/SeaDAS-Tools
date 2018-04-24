@@ -159,7 +159,7 @@ class Bundle(object):
                     os.rename(named_file, out_name)
                     break
 
-    def read_write(self):
+    def fix_files(self):
         '''
         '''
 
@@ -183,12 +183,12 @@ def parse_command_line():
         'extension of either ".tar.gz" or ".tgz"'
     )
 
+    parser.add_argument('inputfile', type=str,
+                        help='The bundle (.tar.gz or .tgz file) to be converted')
+
     parser.add_argument('-v', '--verbose',
                         action='store_true',
                         help='Display informational non-error output (recommended)')
-
-    parser.add_argument('-i', '--inputfile', type=str,
-                        help='The bundle (.tar.gz or .tgz file) to be converted')
 
     args = parser.parse_args()
 
@@ -228,4 +228,4 @@ if __name__ == '__main__':
     L8_bundle = Bundle(opts.inputfile)
     L8_bundle.open_file()
     L8_bundle.extract_files()
-    L8_bundle.read_write()
+    L8_bundle.fix_files()
