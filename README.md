@@ -41,7 +41,7 @@ Unpack and rename/modify files to conform to old Landsat 8 file naming conventio
 
 The program expects a gzipped tarball, as downloaded from the Glovis/developmentseed sites, and will upack it, rename the various files to the old "SCENE_ID" format, and rewrite the "MTL.txt" metadata file to utilize the old file naming scheme, and remove the new metadata lines used in Collection 1 files.
 
-The program leaves the downloaded gzipped tarball intact.
+The program leaves the downloaded gzipped tarball intact.g
 
 
 ```

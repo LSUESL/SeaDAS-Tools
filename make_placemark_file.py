@@ -162,8 +162,8 @@ def parse_command_line():
     # Sanity check the options
     all_opts = args.infile and args.outfile
     if not all_opts:
-        print 'ERROR - You must specify the name of both input and output files'
-        print 'Enter "make_placemark_file --help" for more information'
+        print('ERROR - You must specify the name of both input and output files')
+        print('Enter "make_placemark_file --help" for more information')
         sys.exit()
 
     return args
@@ -175,7 +175,8 @@ if __name__ == '__main__':
     if not '.placemark' in opts.outfile[-10:]:
         opts.outfile += '.placemark'
     if not os.path.exists(opts.infile):
-        print 'ERROR - Specified input file "' + opts.infile + '" does not exist!'
+        print('ERROR - Specified input file "' +
+              opts.infile + '" does not exist!')
         sys.exit()
     csvfile = CSVFile(opts.infile, positions_as_dms=opts.dms, skip=opts.skip)
     csvfile.load()

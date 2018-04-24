@@ -145,8 +145,6 @@ class Bundle(object):
         # We've already dealt with MTL file
         for bad_ext in ('.tar.gz', '.tgz', '_MTL.txt'):
             bundle_files = [
-                file for file in bundle_files if not bad_ext in file]
-            print bundle_files
         for named_file in bundle_files:
             (path, name, exts) = Bundle.split_filename(named_file)
             for band in OLI_extensions:
@@ -205,14 +203,14 @@ def verbosity(message):
     '''
     '''
     if VERBOSE:
-        print message
+        print(message)
 
 
 def abort(message):
     '''
     '''
-    print 'A fatal error was encountered!'
-    print message
+    print('A fatal error was encountered!')
+    print(message)
     sys.exit()
 
 
