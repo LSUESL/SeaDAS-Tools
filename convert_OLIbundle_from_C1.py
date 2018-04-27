@@ -145,11 +145,11 @@ class Bundle(object):
         # We've already dealt with MTL file
         for bad_ext in ('.tar.gz', '.tgz', '_MTL.txt'):
             bundle_files = [
+                file for file in bundle_files if not bad_ext in file]
         for named_file in bundle_files:
             (path, name, exts) = Bundle.split_filename(named_file)
             for band in OLI_extensions:
                 if band in os.extsep.join([name] + exts):
-                    #                    out_name = os.extsep.join([self.output_base_name + band])
                     out_name = self.output_base_name + band
                     if path:
                         out_name = '/'.join([path, out_name])
@@ -191,10 +191,9 @@ def parse_command_line():
     args = parser.parse_args()
 
     # Sanity check the options
-    # all_opts = args.dir and args.pattern
-    # if not all_opts:
-    #    print 'ERROR - You must specify a directory and a pattern'
-    # sys.exit()
+    all_opts = args.inputfile
+    if not all_opts:
+        abort('ERROR - You must specify an input file')
 
     return args
 
